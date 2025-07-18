@@ -9,8 +9,8 @@ import (
 )
 
 type HttpServer struct {
-	Address string
-	Port    string
+	Address string `yaml:"address" env:"HTTP_SERVER_ADDRESS" env-default:"localhost"`
+	Port    string `yaml:"port" env:"HTTP_SERVER_PORT" env-default:"8080"`
 }
 
 // env-default:"production"
