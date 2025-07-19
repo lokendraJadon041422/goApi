@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/lokendraJadon041422/studentsApi/internal/config"
+	"github.com/lokendraJadon041422/studentsApi/internal/http/handlers/student"
 )
 
 func main() {
@@ -19,9 +20,7 @@ func main() {
 
 	// create router
 	router := http.NewServeMux()
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World"))
-	})
+	router.HandleFunc("POST /api/students", student.CreateStudent())
 	// create serever
 	server := &http.Server{
 		Addr:    ":" + config.HttpServer.Port,
